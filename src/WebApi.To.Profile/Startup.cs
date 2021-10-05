@@ -58,6 +58,13 @@ namespace WebApi.To.Profile
                     .WithDailyTimeIntervalSchedule(x => x.WithInterval(60, IntervalUnit.Second))
                     .WithDescription("my awesome trigger configured for a job with single call")
                 );
+
+                q.ScheduleJob<ExampleNoManualProfilingJob>(trigger => trigger
+                    .WithIdentity("Combined Configuration Trigger2")
+                    .StartAt(DateBuilder.EvenSecondDate(DateTimeOffset.UtcNow.AddSeconds(10)))
+                    .WithDailyTimeIntervalSchedule(x => x.WithInterval(60, IntervalUnit.Second))
+                    .WithDescription("my awesome trigger configured for a job with single call")
+                );
             });
 
             services.AddTransient<ExampleJob>();

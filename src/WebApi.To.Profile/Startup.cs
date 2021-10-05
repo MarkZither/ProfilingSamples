@@ -31,7 +31,6 @@ namespace WebApi.To.Profile
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -90,7 +89,7 @@ namespace WebApi.To.Profile
                 //   See: https://github.com/MiniProfiler/dotnet/issues/501 for details
                 //(options.Storage as MemoryCacheStorage).CacheDuration = TimeSpan.FromMinutes(60);
                 //options.Storage = new SqlServerStorage("Data Source=.;Initial Catalog=MiniProfiler;Integrated Security=True;");
-                var storage = new MySqliteStorage(SqliteConnectionString);//.WithSchemaCreation();
+                var storage = new MySqliteStorage(SqliteConnectionString).WithSchemaCreation();
                 options.Storage = storage;
 
                 // (Optional) Control which SQL formatter to use, InlineFormatter is the default

@@ -465,7 +465,15 @@ Select Cast(Id as text) Id
                 // We need some tiny mods to allow SQLite support 
                 foreach (var sql in TableCreationScripts.Union(additionalSqlStatements))
                 {
-                    cnn.Execute(sql);
+                    try
+                    {
+                        cnn.Execute(sql);
+                    }
+                    catch (Exception ex)
+                    {
+                        // carry on if it is just the table exists
+                        string whatsTheErrorMessage = ex.Message;
+                    }
                 }
             }
         }

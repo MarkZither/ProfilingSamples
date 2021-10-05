@@ -23,9 +23,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi.To.Profile.Tests", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApp.To.Read.Profiler.Logs.Tests", "tests\WebApp.To.Read.Profiler.Logs.Tests\WebApp.To.Read.Profiler.Logs.Tests.csproj", "{112A431F-BCD5-4354-BFF1-D437872B715A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLib.To.Test.Profiling", "src\ClassLib.To.Test.Profiling\ClassLib.To.Test.Profiling.csproj", "{51EAACFD-8342-43A1-8B51-963E434061EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassLib.To.Test.Profiling", "src\ClassLib.To.Test.Profiling\ClassLib.To.Test.Profiling.csproj", "{51EAACFD-8342-43A1-8B51-963E434061EF}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SharedProject1", "src\SharedProject1\SharedProject1.shproj", "{4C955DF0-933D-4608-B9F1-C20B69E34A64}"
 EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		src\SharedProject1\SharedProject1.projitems*{05b8d42f-e3fb-45dd-ba6f-3dffbb9fc975}*SharedItemsImports = 5
+		src\SharedProject1\SharedProject1.projitems*{4c955df0-933d-4608-b9f1-c20b69e34a64}*SharedItemsImports = 13
+		src\SharedProject1\SharedProject1.projitems*{51eaacfd-8342-43a1-8b51-963e434061ef}*SharedItemsImports = 5
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -61,6 +68,7 @@ Global
 		{DE3FC04C-1D60-44DB-87E7-AD76D811AA4E} = {DFEDBCF4-E66E-40D8-8047-6198733B3154}
 		{112A431F-BCD5-4354-BFF1-D437872B715A} = {DFEDBCF4-E66E-40D8-8047-6198733B3154}
 		{51EAACFD-8342-43A1-8B51-963E434061EF} = {AF164934-9B6C-4281-9C81-4A5E46C2BF71}
+		{4C955DF0-933D-4608-B9F1-C20B69E34A64} = {AF164934-9B6C-4281-9C81-4A5E46C2BF71}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E6A00B3A-3273-453A-8E02-6A18E081DC00}

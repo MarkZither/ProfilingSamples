@@ -35,7 +35,7 @@ namespace WebApi.To.Profile
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<BloggingContext>(x => x.UseSqlite("Data Source=LocalDatabase.db"));
+            services.AddDbContext<BloggingContext>(x => x.UseSqlite("Data Source=c:\\temp\\LocalDatabase.db"));
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebApi.To.Profile", Version = "v1" });
@@ -162,7 +162,7 @@ namespace WebApi.To.Profile
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebApi.To.Profile v1"));
             }
-            bloggingContext.Database.Migrate();
+            
             app.UseMiniProfiler();
 
             app.UseHttpsRedirection();

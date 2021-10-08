@@ -150,7 +150,8 @@ namespace WebApi.To.Profile
                 // It has a lot of overhead vs. normal profiling and should only be used with that in mind
                 // (defaults to false, debug/heavy mode is off)
                 //options.EnableDebugMode = true;
-            });
+            })
+            .AddEntityFramework();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

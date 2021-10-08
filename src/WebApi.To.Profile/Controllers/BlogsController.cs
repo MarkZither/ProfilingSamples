@@ -9,7 +9,9 @@ using WebApi.To.Profile.Data;
 
 namespace WebApi.To.Profile.Controllers
 {
-    public class BlogsController : Controller
+    [ApiController]
+    [Route("[controller]")]
+    public class BlogsController : ControllerBase
     {
         private readonly BloggingContext _context;
 
@@ -19,13 +21,15 @@ namespace WebApi.To.Profile.Controllers
         }
 
         // GET: Blogs
+        [HttpGet(Name = "ListBlogUsingGet")]
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Blogs.ToListAsync());
+            return Ok(_context.Blogs);
         }
 
         // GET: Blogs/Details/5
-        public async Task<IActionResult> Details(int? id)
+        [HttpGet("{id}", Name = "FindBlogUsingGet")]
+        public async Task<IActionResult> Details(int id)
         {
             if (id == null)
             {
@@ -39,19 +43,13 @@ namespace WebApi.To.Profile.Controllers
                 return NotFound();
             }
 
-            return View(blog);
+            return Ok(blog);
         }
-
-        // GET: Blogs/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
+        
         // POST: Blogs/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        [HttpPost(Name = "AddBlogUsingPost")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("BlogId,Url,Rating")] Blog blog)
         {
@@ -61,11 +59,12 @@ namespace WebApi.To.Profile.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(blog);
+            return Ok(blog);
         }
-
+/*
         // GET: Blogs/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        [HttpGet("{id}", Name = "FindBlogByIdUsingGet")]
+        public async Task<IActionResult> Edit(int id)
         {
             if (id == null)
             {
@@ -77,13 +76,13 @@ namespace WebApi.To.Profile.Controllers
             {
                 return NotFound();
             }
-            return View(blog);
+            return Ok(blog);
         }
-
+*/
         // POST: Blogs/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        [HttpPost("edit/{id}", Name = "EditBlogUsingPost")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("BlogId,Url,Rating")] Blog blog)
         {
@@ -112,11 +111,12 @@ namespace WebApi.To.Profile.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(blog);
+            return Ok(blog);
         }
 
         // GET: Blogs/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        [HttpDelete("{id}", Name = "DeleteBlogUsingDelete")]
+        public async Task<IActionResult> Delete(int id)
         {
             if (id == null)
             {
@@ -130,11 +130,11 @@ namespace WebApi.To.Profile.Controllers
                 return NotFound();
             }
 
-            return View(blog);
+            return Ok(blog);
         }
-
+  
         // POST: Blogs/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost("{id}"), ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
@@ -143,7 +143,7 @@ namespace WebApi.To.Profile.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
+      
         private bool BlogExists(int id)
         {
             return _context.Blogs.Any(e => e.BlogId == id);

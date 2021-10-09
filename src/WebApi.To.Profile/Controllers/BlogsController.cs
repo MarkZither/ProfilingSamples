@@ -61,28 +61,11 @@ namespace WebApi.To.Profile.Controllers
             }
             return Ok(blog);
         }
-/*
-        // GET: Blogs/Edit/5
-        [HttpGet("{id}", Name = "FindBlogByIdUsingGet")]
-        public async Task<IActionResult> Edit(int id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
 
-            var blog = await _context.Blogs.FindAsync(id);
-            if (blog == null)
-            {
-                return NotFound();
-            }
-            return Ok(blog);
-        }
-*/
         // POST: Blogs/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost("edit/{id}", Name = "EditBlogUsingPost")]
+        [HttpPut("{id}", Name = "EditBlogUsingPut")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("BlogId,Url,Rating")] Blog blog)
         {
@@ -116,27 +99,8 @@ namespace WebApi.To.Profile.Controllers
 
         // GET: Blogs/Delete/5
         [HttpDelete("{id}", Name = "DeleteBlogUsingDelete")]
-        public async Task<IActionResult> Delete(int id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var blog = await _context.Blogs
-                .FirstOrDefaultAsync(m => m.BlogId == id);
-            if (blog == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(blog);
-        }
-  
-        // POST: Blogs/Delete/5
-        [HttpPost("{id}"), ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> Delete(int id)
         {
             var blog = await _context.Blogs.FindAsync(id);
             _context.Blogs.Remove(blog);

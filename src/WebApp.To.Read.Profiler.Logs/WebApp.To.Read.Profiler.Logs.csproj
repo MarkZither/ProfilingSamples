@@ -14,4 +14,26 @@
     <ProjectReference Include="..\ClassLib.To.Test.Profiling\ClassLib.To.Test.Profiling.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Update="Meziantou.Analyzer" Version="1.0.671">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Update="PostSharp" Version="6.9.9" />
+    <PackageReference Update="PostSharp.Patterns.Diagnostics" Version="6.9.9" />
+    <PackageReference Update="PostSharp.Patterns.Diagnostics.Microsoft" Version="6.9.9" />
+    <PackageReference Update="Roslynator.Analyzers" Version="3.2.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Update="Roslynator.Formatting.Analyzers" Version="1.2.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Update="SonarAnalyzer.CSharp" Version="8.30.0.37606">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
 </Project>

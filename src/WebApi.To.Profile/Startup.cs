@@ -18,6 +18,7 @@ using Quartz;
 using StackExchange.Profiling.Storage;
 
 using WebApi.To.Profile.Data;
+using WebApi.To.Profile.Services;
 
 namespace WebApi.To.Profile
 {
@@ -35,6 +36,8 @@ namespace WebApi.To.Profile
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddScoped<IBloggingService, BloggingService>();
+            services.AddScoped<IBasicPointlessClass, BasicPointlessClass>();
             services.AddDbContext<BloggingContext>(x => x.UseSqlite("Data Source=c:\\temp\\LocalDatabase.db"));
             services.AddSwaggerGen(c =>
             {

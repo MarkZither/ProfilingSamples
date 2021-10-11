@@ -10,12 +10,16 @@ namespace WebApi.To.Profile
 {
     internal class ExampleNoManualProfilingJob : IJob
     {
+        private readonly IBasicPointlessClass _basicPointlessClass;
+        public ExampleNoManualProfilingJob(IBasicPointlessClass basicPointlessClass)
+        {
+            _basicPointlessClass = basicPointlessClass;
+        }
         public Task Execute(IJobExecutionContext context)
         {
             var profiler = MiniProfiler.StartNew("My PostSharp MiniProfiler Magic");
             
-            BasicPointlessClass basic = new BasicPointlessClass();
-            int pointless = basic.WaitABit();
+            int pointless = _basicPointlessClass.WaitABit();
 
             profiler.Stop();
 

@@ -198,8 +198,8 @@ WHERE NOT EXISTS (SELECT 1 FROM {MiniProfilerClientTimingsTable} WHERE Id = @Id)
          MiniProfilerId as MiniProfilerIdString,
          ParentTimingId as ParentTimingIdString,
          Name,
-         CAST(DurationMilliseconds AS NUMERIC),
-         CAST(StartMilliseconds AS NUMERIC),
+         542.88 AS DurationMilliseconds,
+         123.98 AS StartMilliseconds,
          IsRoot,
          Depth,
          CustomTimingsJson

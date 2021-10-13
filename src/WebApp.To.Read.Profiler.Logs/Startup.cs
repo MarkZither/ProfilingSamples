@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -58,7 +59,7 @@ namespace WebApp.To.Read.Profiler.Logs
 
                 // (Optional)  To control which requests are profiled, use the Func<HttpRequest, bool> option:
                 // (default is everything should be profiled)
-                //options.ShouldProfile = request => MyShouldThisBeProfiledFunction(request);
+                options.ShouldProfile = request => MyShouldThisBeProfiledFunction(request);
 
                 // (Optional) Profiles are stored under a user ID, function to get it:
                 // (default is null, since above methods don't use it by default)
@@ -100,6 +101,11 @@ namespace WebApp.To.Read.Profiler.Logs
                 // (defaults to false, debug/heavy mode is off)
                 //options.EnableDebugMode = true;
             });
+        }
+
+        private bool MyShouldThisBeProfiledFunction(HttpRequest request)
+        {
+            return false;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -2,6 +2,11 @@
 <!--Common-->
 
 <Project>
+  <PropertyGroup>
+    <MicrosoftAspNetCorePackageVersion>7.0.1</MicrosoftAspNetCorePackageVersion>
+    <MicrosoftEntityFrameworkCorePackageVersion>7.0.1</MicrosoftEntityFrameworkCorePackageVersion>
+    <MicrosoftExtensionsPackageVersion>7.0.0</MicrosoftExtensionsPackageVersion>
+  </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="AsyncFixer">
       <Version>1.5.1</Version>

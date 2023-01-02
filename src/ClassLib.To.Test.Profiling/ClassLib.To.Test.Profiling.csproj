@@ -18,9 +18,9 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Update="PostSharp" Version="6.9.9" />
-    <PackageReference Update="PostSharp.Patterns.Diagnostics" Version="6.9.9" />
-    <PackageReference Update="PostSharp.Patterns.Diagnostics.Microsoft" Version="6.9.9" />
+    <PackageReference Update="PostSharp" Version="6.10.16" />
+    <PackageReference Update="PostSharp.Patterns.Diagnostics" Version="6.10.16" />
+    <PackageReference Update="PostSharp.Patterns.Diagnostics.Microsoft" Version="6.10.16" />
     <PackageReference Update="Roslynator.Analyzers" Version="4.2.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

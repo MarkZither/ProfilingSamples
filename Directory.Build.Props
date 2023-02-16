@@ -4,7 +4,7 @@
 <Project>
   <PropertyGroup>
     <MicrosoftAspNetCorePackageVersion>7.0.2</MicrosoftAspNetCorePackageVersion>
-    <MicrosoftEntityFrameworkCorePackageVersion>7.0.1</MicrosoftEntityFrameworkCorePackageVersion>
+    <MicrosoftEntityFrameworkCorePackageVersion>7.0.3</MicrosoftEntityFrameworkCorePackageVersion>
     <MicrosoftExtensionsPackageVersion>7.0.0</MicrosoftExtensionsPackageVersion>
   </PropertyGroup>
   <ItemGroup>
